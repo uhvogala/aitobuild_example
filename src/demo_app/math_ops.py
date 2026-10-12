@@ -4,3 +4,7 @@ def add(left: int, right: int) -> int:
 
 def square(value: int) -> int:
     return value * value
+
+
+def cube(value: int) -> int:
+    return value ** 3
