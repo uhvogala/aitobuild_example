@@ -1,3 +1,5 @@
+import pytest
+
 from demo_app.stats import maximum, minimum
 
 
@@ -23,3 +25,13 @@ def test_minimum_negative_integers() -> None:
 
 def test_maximum_negative_integers() -> None:
     assert maximum([-2, 0, 5, -8]) == 5
+
+
+def test_minimum_empty_raises() -> None:
+    with pytest.raises(ValueError, match="must not be empty"):
+        minimum([])
+
+
+def test_maximum_empty_raises() -> None:
+    with pytest.raises(ValueError, match="must not be empty"):
+        maximum([])
