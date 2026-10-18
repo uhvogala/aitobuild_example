@@ -1,6 +1,21 @@
+import inspect
+
 import pytest
 
+from demo_app import stats
 from demo_app.stats import maximum, minimum, value_range
+
+
+def test_public_functions_have_docstrings() -> None:
+    public_functions = [
+        obj
+        for name, obj in inspect.getmembers(stats, inspect.isfunction)
+        if not name.startswith("_")
+    ]
+    assert public_functions
+    for func in public_functions:
+        assert func.__doc__
+        assert func.__doc__.strip()
 
 
 def test_minimum_multi_value() -> None:
