@@ -1,6 +1,6 @@
 import pytest
 
-from demo_app.stats import maximum, minimum
+from demo_app.stats import maximum, minimum, value_range
 
 
 def test_minimum_multi_value() -> None:
@@ -36,3 +36,15 @@ def test_minimum_empty_raises() -> None:
 def test_maximum_empty_raises() -> None:
     with pytest.raises(ValueError, match="must not be empty"):
         maximum([])
+
+
+def test_value_range_multi_value() -> None:
+    assert value_range([3, 1, 4, 1, 5]) == 4
+    assert value_range([9, 1, 4]) == 8
+    assert value_range([7]) == 0
+    assert value_range([-2, 0, 5, -8]) == 13
+
+
+def test_value_range_empty_raises() -> None:
+    with pytest.raises(ValueError, match="must not be empty"):
+        value_range([])
