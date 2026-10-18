@@ -9,6 +9,7 @@ def test_minimum_multi_value() -> None:
 
 def test_maximum_multi_value() -> None:
     assert maximum([3, 1, 4, 1, 5]) == 5
+    assert maximum([9, 1, 4]) == 9
 
 
 def test_minimum_single_element() -> None:
