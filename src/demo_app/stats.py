@@ -8,3 +8,7 @@ def maximum(values: list[int]) -> int:
     if not values:
         raise ValueError("values must not be empty")
     return max(values)
+
+
+def value_range(values: list[int]) -> int:
+    return maximum(values) - minimum(values)
