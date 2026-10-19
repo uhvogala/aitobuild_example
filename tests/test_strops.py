@@ -28,3 +28,8 @@ def test_count_vowels_empty() -> None:
 def test_count_vowels_whitespace_only() -> None:
     assert count_vowels("   ") == 0
     assert count_vowels(" \t\n ") == 0
+
+
+def test_count_vowels_mixed_case() -> None:
+    assert count_vowels("AEiou xyz") == 5
+    assert count_vowels("BCD") == 0
